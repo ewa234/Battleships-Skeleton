@@ -14,14 +14,20 @@ def GetRowColumn():
                 print ("Out of bounds of the board, please enter again")
             else:
                 valid = True
-        except ValueError:
+        except :
             print("Incorrect data type")
 
+    valid = False
+    while not valid:
+        try:
+            Column = int(input("Please enter column: "))
+            if (Column < 0 or Column > 9):
+                print ("Out of bounds of the board, please enter again")
+            else:
+                valid = True
+        except :
+            print("Incorrect data type")
 
-    Column = int(input("Please enter column: "))
-    while (Column < 0 or Column > 9):
-        print("Out of bounds of the board, please enter again")
-        Column = int(input("Please enter column: "))
 
     print()
     return Row, Column
@@ -141,7 +147,14 @@ def DisplayMenu():
 
 def GetMainMenuChoice():
     print("Please enter your choice: ", end="")
-    Choice = int(input())
+    choiceEntered = False
+   
+    while not choiceEntered:
+        try:
+            Choice = int(input("please enter your choice"))
+            choiceEntered = True
+        except:
+            print("try again")
     print()
     return Choice
 
